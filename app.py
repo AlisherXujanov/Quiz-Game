@@ -1,4 +1,5 @@
-from class import Quiz
+from constructor import Quiz
+import random
 
 level_one = [
     '>>>>\n\nThere are 17-floors in apartmant. On the first floor there are only 4 people living,\nbut the more you gohigher, the more the number of people is increasing in double. \nSo, which number of the elevator is being pushed the most each day? \na) Last floor \nb) First floor \nc) Middle floor \nd) All floors are equal\n\n',
@@ -15,4 +16,44 @@ level_one = [
     '>>>>\n\nYou were given this, and it belongs to you now. You have never passed it on to anyone, but all your friends use it. What is it? \na) Skill \nb) Age \nc) Ability \nd) Name \n\n',
     '>>>>\n\nI never was, am always to be. Noone ever saw me, nor ever will, and yet i am the confidence of all, Who am I ??? \na) Earth \nb) Sun \nc) Air \nd) Future \n\n'
 ]
+
+questions = [
+    Quiz(level_one[0], 'b'),
+    Quiz(level_one[1], 'a'),
+    Quiz(level_one[2], 'c'),
+    Quiz(level_one[3], 'b'),
+    Quiz(level_one[4], 'b'),
+    Quiz(level_one[5], 'd'),
+    Quiz(level_one[6], 'a'),
+    Quiz(level_one[7], 'a'),
+    Quiz(level_one[8], 'd'),
+    Quiz(level_one[9], 'd'),
+    Quiz(level_one[10], 'c'),
+    Quiz(level_one[11], 'd'),
+    Quiz(level_one[12], 'd')]
+
+def run_test(questions):
+    score = 0
+    for question in questions:
+        answer = input(question.prompt + 'Answer: ').lower()
+        if answer == question.answer:
+            score += 10
+            print(f"Your score is {score}")
+        else:
+            print("Oh no, Wrong...")
+    print(f"You got {score} / {len(questions)} correnct!")
+
+random.shuffle(questions)
+run_test(questions)
+
+
+
+
+
+
+
+
+
+
+
 
