@@ -1,5 +1,10 @@
 from constructor import Quiz
 import random
+import playsound
+import msvcrt
+
+
+
 
 level_one = [
     '>>>>\n\nThere are 17-floors in apartmant. On the first floor there are only 4 people living,\nbut the more you gohigher, the more the number of people is increasing in double. \nSo, which number of the elevator is being pushed the most each day? \na) Last floor \nb) First floor \nc) Middle floor \nd) All floors are equal\n\n',
@@ -9,13 +14,27 @@ level_one = [
     '>>>>\n\nThere are a group of Caterpillars going on. One is ahead, two are behind. \nOne is behind, two are ahead and one is between. How many of them in a group? \na) 2 \nb) 3 \nc) 4 \nd) 5\n\n',
     '>>>>\n\nWhich one is heavier, 1kg of Cotton or 1kg of Iron? \na) Iron \nb) Cotton \nc) None \nd) Equal \n\n',
     '>>>>\n\nThree huge Chickens can eat three fattest Caterpillars in three minutes. \nHow much time would it take if thirty Chickens were about to eat thirty Caterpillars? \na) 3 \nb) 5 \nc) 10 \nd) 30 \n\n',
-    '>>>>\n\nThe treasure hunter made his way to an uninhabited island in the Caribbean using an old map. He wandered for several hours in the dense tropics, untill he came across a tribe of local Aborigens. The tribal elder decided to kill the intruder immediately, but first decided to mock him. The treasure hunter could only say the last phrase in his life. If it turns out to be true, then he will be thrown from the mountain onto rocky shore. If the phrase turns out to be lie, the wanderer will be torn apart by lions. However, the treasur hunter managed to escape. What was his phrase after which the elder was forced to release the treasure hunter??? \na) I am being torn apart by lions \nb) I want to jump from mountains to rocky shore \nc) I am sorry \nd) I do not want to die \n\n',
+    '>>>>\n\nThe treasure hunter made his way to an uninhabited island in the Caribbean using an old map. \nHe wandered for several hours in the dense tropics, untill he came across a tribe of local Aborigens. \nThe tribal elder decided to kill the intruder immediately, but first decided to mock him. \nThe treasure hunter could only say the last phrase in his life. If it turns out to be true, \nthen he will be thrown from the mountain onto rocky shore. If the phrase turns out to be lie, \nthe wanderer will be torn apart by lions. However, the treasur hunter managed to escape. \nWhat was his phrase after which the elder was forced to release the treasure hunter??? \n\na) I am being torn apart by lions \nb) I want to jump from mountains to rocky shore \nc) I am sorry \nd) I do not want to die \n\n',
     '>>>>\n\nIn the room there are four corners and at each corner there is a cat. \nIn front of each cat there are 3 cats. How many cats are there in total? \na) 16 \nB) 12 \nc) 3 \nd) 4 \n\n',
     ">>>>\n\nAlex's grandfather was going home on foot on a sunny and beautiful day. And suddenly rain started pouring and he went home soaking wet. But when he got home not a single hair on his head got wet, Why? \na) He was ill \nb) He ran too fast \nc) He met a friend \nd) He had't any \n\n",
     '>>>>\n\nTwo children can create two bicycles in two hours. How many children required to create 12 bicycles in 6 hours? \na) 2 \nb) 3 \nc) 4 \nd) 5 \n\n', 
     '>>>>\n\nYou were given this, and it belongs to you now. You have never passed it on to anyone, but all your friends use it. What is it? \na) Skill \nb) Age \nc) Ability \nd) Name \n\n',
     '>>>>\n\nI never was, am always to be. Noone ever saw me, nor ever will, and yet i am the confidence of all, Who am I ??? \na) Earth \nb) Sun \nc) Air \nd) Future \n\n'
 ]
+
+level_two = [
+    "\n>>Lelvel-2>>\n  -In what part of the body do you find Fibula? \na) Head \nb) Arms \nc) Legs \nd) Everywhere in the body \n\n",
+    "\n>>Lelvel-2>>\n  -If you have Crypthofhobia, what are you afraid of? \na) Crypto Currency \nb) Hot Weather \nc) Nature \nd) Ice and Cold \n\n",
+    "\n>>Lelvel-2>>\n  -According to ONS, What was the most popular boy's name in the UK in 2018? \na) Jozeph \nb) George \nc) Oliver \nd) Stephen \n\n",
+    "\n>>Lelvel-2>>\n  -Which popular video game franchise has released games with the subtitles -World At War- and -Black Ops- ? \na) World Of Warcraft \nb) Call of Duty \nc) Darksiders \nd) Alice in Wonderland \n\n",
+    "\n>>Lelvel-2>>\n  -What is chemical symbol for Silver? \na) Ag \nb) h2o \nc) Ac \nd) Al \n\n",
+    "\n>>Lelvel-2>>\n  -What is the capital city of Switzerland? \na) Regensdorf \nb) Zofingen \nc) Geneva \nd) Bern \n\n",
+    "\n>>Lelvel-2>>\n  -What is the smallest planet in our solar system? \na) Mercury \nb) Venus \nc) Earth \nd) Mars \n\n",
+    "\n>>Lelvel-2>>\n  -What does the Latin Tempus mean in English? \na) Hello \nb) Time \nc) Ruler \nd) Future \n\n",
+    "\n>>Lelvel-2>>\n  -What is seven cubed? \na) 343 \nb) 49 \nc) 250 \nd) 7+7+7 \n\n",
+    "\n>>Lelvel-2>>\n  -How many sonnets did Shakespeare write? \na) 117 \nb) 154 \nc) 300+ \nd) He did not write any \n\n"
+]
+
 
 questions = [
     Quiz(level_one[0], 'b'),
@@ -32,16 +51,64 @@ questions = [
     Quiz(level_one[11], 'd'),
     Quiz(level_one[12], 'd')]
 
+
+questions_lv_two = [
+    Quiz(level_two[0], 'c'),
+    Quiz(level_two[1], 'd'),
+    Quiz(level_two[2], 'c'),
+    Quiz(level_two[3], 'b'),
+    Quiz(level_two[4], 'a'),
+    Quiz(level_two[5], 'd'),
+    Quiz(level_two[6], 'a'),
+    Quiz(level_two[7], 'b'),
+    Quiz(level_two[8], 'a'),
+    Quiz(level_two[9], 'b'),
+]
+
 def run_test(questions):
     score = 0
     for question in questions:
         answer = input(question.prompt + 'Answer: ').lower()
         if answer == question.answer:
-            score += 10
-            print(f"Your score is {score}")
+            playsound.playsound('right.mp3')
+            score += 1
         else:
             print("Oh no, Wrong...")
-    print(f"You got {score} / {len(questions)} correnct!")
+            playsound.playsound('wrong.mp3')
+    print(f"\n\n\n\n                You got {score} / {len(questions)} correnct!")
+    if score > 7:
+        random.shuffle(questions_lv_two)
+        lev_two_score = 0
+        print("             You got right more than half of questions and can get on to next level...")
+        playsound.playsound('lv_up.mp3')
+        for quiz_two in questions_lv_two:
+            answer = input(quiz_two.prompt + 'Answer: ').lower()
+            if answer == quiz_two.answer:
+                playsound.playsound('right.mp3')
+                score += 1
+                lev_two_score += 1
+            else:
+                print("Bad luck...try next>>>")
+                playsound.playsound('wrong.mp3')
+                
+        if score > 12:
+            playsound.playsound('triumph.mp3')
+            print(f'You got {lev_two_score} / {len(questions_lv_two)}, ---WELL DONE---, You are very smart person...')
+        elif score <= 10:
+            print(f"You got {lev_two_score} / {len(questions_lv_two)}. In total you earned {score}.")
+
+        while True:
+            print("\n       If you would like to try again press --ENTER--\n")
+            key = ord(msvcrt.getch())
+            if key == 13:
+                playsound.playsound('sweet.mp3')
+                random.shuffle(questions)
+                run_test(questions)
+            else:
+                print("Thank you for playing ... Hope to see you again...")
+                playsound.playsound('sweet.mp3')
+                break
+
 
 random.shuffle(questions)
 run_test(questions)
