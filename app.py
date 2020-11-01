@@ -5,7 +5,7 @@ import msvcrt
 
 
 
-
+                                # Questions in a list for first level
 level_one = [
     '>>>>\n\nThere are 17-floors in apartmant. On the first floor there are only 4 people living,\nbut the more you gohigher, the more the number of people is increasing in double. \nSo, which number of the elevator is being pushed the most each day? \na) Last floor \nb) First floor \nc) Middle floor \nd) All floors are equal\n\n',
     '>>>>\n\nIn the lake there are 30 hungry Sharks that eat each other constantly. \nA Shark is full when he ate 3 other sharks hungry or full. What number of sharks will have eaten totally 3 of them in the end? \na) 9 \nb) 7 \nc) 2 \nd) 0\n\n',
@@ -21,7 +21,7 @@ level_one = [
     '>>>>\n\nYou were given this, and it belongs to you now. You have never passed it on to anyone, but all your friends use it. What is it? \na) Skill \nb) Age \nc) Ability \nd) Name \n\n',
     '>>>>\n\nI never was, am always to be. Noone ever saw me, nor ever will, and yet i am the confidence of all, Who am I ??? \na) Earth \nb) Sun \nc) Air \nd) Future \n\n'
 ]
-
+                                # Questions in a list for second level
 level_two = [
     "\n>>Lelvel-2>>\n  -In what part of the body do you find Fibula? \na) Head \nb) Arms \nc) Legs \nd) Everywhere in the body \n\n",
     "\n>>Lelvel-2>>\n  -If you have Crypthofhobia, what are you afraid of? \na) Crypto Currency \nb) Hot Weather \nc) Nature \nd) Ice and Cold \n\n",
@@ -65,7 +65,7 @@ questions_lv_two = [
     Quiz(level_two[9], 'b'),
 ]
 
-def run_test(questions):
+def run_code(questions):                                            # First level start-code
     score = 0
     for question in questions:
         answer = input(question.prompt + 'Answer: ').lower()
@@ -76,12 +76,17 @@ def run_test(questions):
             print("Oh no, Wrong...")
             playsound.playsound('wrong.mp3')
     print(f"\n\n\n\n                You got {score} / {len(questions)} correnct!")
-    if score > 7:
-        random.shuffle(questions_lv_two)
+
+
+    
+    if score > 7:                                                    # Finish 1st level with some comment 
+        random.shuffle(questions_lv_two)                             # And get to the 2nd level-code
         lev_two_score = 0
         print("             You got right more than half of questions and can get on to next level...")
         playsound.playsound('lv_up.mp3')
-        for quiz_two in questions_lv_two:
+
+
+        for quiz_two in questions_lv_two:                             # Loop through second ques.-line
             answer = input(quiz_two.prompt + 'Answer: ').lower()
             if answer == quiz_two.answer:
                 playsound.playsound('right.mp3')
@@ -91,19 +96,25 @@ def run_test(questions):
                 print("Bad luck...try next>>>")
                 playsound.playsound('wrong.mp3')
                 
-        if score > 12:
+
+
+
+        if score > 12:                                                 # Demonstration of the result
             playsound.playsound('triumph.mp3')
             print(f'You got {lev_two_score} / {len(questions_lv_two)}, ---WELL DONE---, You are very smart person...')
         elif score <= 10:
             print(f"You got {lev_two_score} / {len(questions_lv_two)}. In total you earned {score}.")
 
+
+
+
         while True:
-            print("\n       If you would like to try again press --ENTER--\n")
+            print("\n       If you would like to try again press --ENTER--\n")          # Ask for one more time
             key = ord(msvcrt.getch())
             if key == 13:
                 playsound.playsound('sweet.mp3')
                 random.shuffle(questions)
-                run_test(questions)
+                run_code(questions)
             else:
                 print("Thank you for playing ... Hope to see you again...")
                 playsound.playsound('sweet.mp3')
@@ -111,7 +122,7 @@ def run_test(questions):
 
 
 random.shuffle(questions)
-run_test(questions)
+run_code(questions)
 
 
 
