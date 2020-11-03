@@ -75,6 +75,7 @@ def run_code(questions):                                            # First leve
             score += 1
         else:
             print("Oh no, Wrong...")
+            print(f"The answer is (({question.answer}))")
             playsound.playsound('wrong.mp3')
     print(f"\n\n\n\n                You got {score} / {len(questions)} correnct!")
 
@@ -95,6 +96,7 @@ def run_code(questions):                                            # First leve
                 lev_two_score += 1
             else:
                 print("Bad luck...try next>>>")
+                print(f"The answer is (({quiz_two.answer}))")
                 playsound.playsound('wrong.mp3')
                 
 
