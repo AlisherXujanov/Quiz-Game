@@ -35,35 +35,36 @@ level_two = [
     "\n>>Lelvel-2>>\n  -How many sonnets did Shakespeare write? \na) 117 \nb) 154 \nc) 300+ \nd) He did not write any \n\n"
 ]
 
+def make_questions():
+    questions = [
+        Quiz(level_one[0], 'b'),
+        Quiz(level_one[1], 'a'),
+        Quiz(level_one[2], 'c'),
+        Quiz(level_one[3], 'b'),
+        Quiz(level_one[4], 'b'),
+        Quiz(level_one[5], 'd'),
+        Quiz(level_one[6], 'a'),
+        Quiz(level_one[7], 'a'),
+        Quiz(level_one[8], 'd'),
+        Quiz(level_one[9], 'd'),
+        Quiz(level_one[10], 'c'),
+        Quiz(level_one[11], 'd'),
+        Quiz(level_one[12], 'd')]
 
-questions = [
-    Quiz(level_one[0], 'b'),
-    Quiz(level_one[1], 'a'),
-    Quiz(level_one[2], 'c'),
-    Quiz(level_one[3], 'b'),
-    Quiz(level_one[4], 'b'),
-    Quiz(level_one[5], 'd'),
-    Quiz(level_one[6], 'a'),
-    Quiz(level_one[7], 'a'),
-    Quiz(level_one[8], 'd'),
-    Quiz(level_one[9], 'd'),
-    Quiz(level_one[10], 'c'),
-    Quiz(level_one[11], 'd'),
-    Quiz(level_one[12], 'd')]
 
-
-questions_lv_two = [
-    Quiz(level_two[0], 'c'),
-    Quiz(level_two[1], 'd'),
-    Quiz(level_two[2], 'c'),
-    Quiz(level_two[3], 'b'),
-    Quiz(level_two[4], 'a'),
-    Quiz(level_two[5], 'd'),
-    Quiz(level_two[6], 'a'),
-    Quiz(level_two[7], 'b'),
-    Quiz(level_two[8], 'a'),
-    Quiz(level_two[9], 'b'),
-]
+    questions_lv_two = [
+        Quiz(level_two[0], 'c'),
+        Quiz(level_two[1], 'd'),
+        Quiz(level_two[2], 'c'),
+        Quiz(level_two[3], 'b'),
+        Quiz(level_two[4], 'a'),
+        Quiz(level_two[5], 'd'),
+        Quiz(level_two[6], 'a'),
+        Quiz(level_two[7], 'b'),
+        Quiz(level_two[8], 'a'),
+        Quiz(level_two[9], 'b'),
+    ]
+    return questions, questions_lv_two
 
 def run_code(questions):                                            # First level start-code
     score = 0
@@ -120,9 +121,10 @@ def run_code(questions):                                            # First leve
                 playsound.playsound('sweet.mp3')
                 break
 
-
-random.shuffle(questions)
-run_code(questions)
+if __name__ == '__main__':
+    questions, questions_lv_two = make_questions()
+    random.shuffle(questions)
+    run_code(questions)
 
 
 
