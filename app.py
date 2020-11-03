@@ -37,7 +37,7 @@ level_two = [
 
 
 questions = [
-    Quiz(level_one[0], 'b'),
+    Quiz(level_one[0], 'b'),                    # Constructing the Quiz for lv-1
     Quiz(level_one[1], 'a'),
     Quiz(level_one[2], 'c'),
     Quiz(level_one[3], 'b'),
@@ -53,7 +53,7 @@ questions = [
 
 
 questions_lv_two = [
-    Quiz(level_two[0], 'c'),
+    Quiz(level_two[0], 'c'),                    # Constructing the Quiz for lv-2
     Quiz(level_two[1], 'd'),
     Quiz(level_two[2], 'c'),
     Quiz(level_two[3], 'b'),
@@ -86,7 +86,7 @@ def run_code(questions):                                            # First leve
         playsound.playsound('lv_up.mp3')
 
 
-        for quiz_two in questions_lv_two:                             # Loop through second ques.-line
+        for quiz_two in questions_lv_two:                             # Loop through second ques.-list
             answer = input(quiz_two.prompt + 'Answer: ').lower()
             if answer == quiz_two.answer:
                 playsound.playsound('right.mp3')
@@ -103,7 +103,7 @@ def run_code(questions):                                            # First leve
             playsound.playsound('triumph.mp3')
             print(f'You got {lev_two_score} / {len(questions_lv_two)}, ---WELL DONE---, You are very smart person...')
         elif score <= 10:
-            print(f"You got {lev_two_score} / {len(questions_lv_two)}. In total you earned {score}.")
+            print(f"You got {lev_two_score} / {len(questions_lv_two)}. In total you earned {score} scores.")
 
 
 
